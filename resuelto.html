@@ -21,36 +21,35 @@
         <div class="interfaz-usuario">
 
             <form >
-               <textarea id="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" ></textarea>
+               <textarea id="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" value="$_POST" ></textarea>
             </form>
 
-            
+            <div class="botones">
+                <p>Solo letras minúsculas y sin acento</p>
+                <button onclick="boton_encriptar()" class="boton" id="encriptar">Encriptar</button>
+                <button onclick="boton_desencriptar()"class="boton" id="desencriptar">Desencriptar</button>
+                
+            </div>
         </div>
         
         <div class="interfaz-derecha">
-
-                <div class="imagen-centro">
-                    <img src="imagenes/imagen-centro.png" alt="ilustracion-1" id="imagen-munieco" width="100%">
-                </div>
-    
-                <div class="textos">
-                    <p id="textoA">Ningún mensaje fue encontrado</p>
-                    <p id="textoB">Ingrese el texto que desea encriptar o desencriptar</p>
-                </div>  
+          <div class="textos">
+                <p id="textoA">Ningún mensaje fue encontrado</p>
+               
                 
+                
+            </div>  
+            <div>
+                <button onclick="boton_copiar()" class="boton" id="copiar">Copiar</button>
             </div>
+                
+            
            
             
         </div>
 
-        <div class="botones">
-            <p>Solo letras minúsculas y sin acento</p>
-            <button onclick="boton_encriptar()" class="boton" id="encriptar">Encriptar</button>
-            <button onclick="boton_desencriptar()"class="boton" id="desencriptar">Desencriptar</button>
-            <button onclick="boton_desencriptar()"class="boton" id="copiar">Copiar</button>
-        </div>
-        
-        <script src="app.js" ></script>
+       
+        <script src="app.js"></script>
     </main>
 
     <footer>

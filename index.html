@@ -20,17 +20,17 @@
         <main>
             <div class="interfaz-usuario">
 
-                <form >
-                   <textarea id="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" ></textarea>
+                <form method="post">
+                    <label for="caja-texto-usuario"></label>
+                    <textarea id="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" ></textarea>
                 </form>
 
                 <div class="botones">
                     <p>Solo letras minúsculas y sin acento</p>
-                    <button onclick="boton_encriptar()" class="boton" id="encriptar">Encriptar</button>
+                    <a href="resuelto.html"><button onclick="boton_encriptar()" class="boton" id="encriptar">Encriptar</button> </a>
                     <button onclick="boton_desencriptar()"class="boton" id="desencriptar">Desencriptar</button>
                 </div>
             </div>
-            
             <div class="interfaz-derecha">
     
                     <div class="imagen-centro">
@@ -48,6 +48,7 @@
 
             
             <script src="app.js" ></script>
+            
         </main>
     </body>
 </html>
