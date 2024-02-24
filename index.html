@@ -20,8 +20,9 @@
         <main>
             <div class="interfaz-usuario">
 
-                <form >
-                   <textarea id="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" ></textarea>
+                <form method="post">
+                    <label for="caja-texto-usuario"></label>
+                    <textarea id="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" ></textarea>
                 </form>
 
                 <div class="botones">
@@ -30,7 +31,6 @@
                     <button onclick="boton_desencriptar()"class="boton" id="desencriptar">Desencriptar</button>
                 </div>
             </div>
-            
             <div class="interfaz-derecha">
     
                     <div class="imagen-centro">
@@ -40,7 +40,10 @@
                     <div class="textos">
                         <p id="textoA">Ningún mensaje fue encontrado</p>
                         <p id="textoB">Ingrese el texto que desea encriptar o desencriptar</p>
-                    </div>  
+                    </div>
+                    <div>
+                        <button onclick="boton_copiar()" class="boton" id="copiar" disabled style="scale: 0">Copiar</button>
+                    </div>
                 </div>
                
                 
@@ -48,6 +51,7 @@
 
             
             <script src="app.js" ></script>
+            
         </main>
     </body>
 </html>
