@@ -4,27 +4,30 @@ const letraI = "imes";
 const letraO = "ober";
 const letraU = "ufat";
 
+var textoInicialCaja="";
+
 let textoAEncriptar= document.getElementById(textoA);
-let textoUsuario_copia="";
 
 //Botones
 function boton_encriptar(){
-
-    //inicializar boton de encriptar con el texto dado
+    //Obtener el texto
     let textoUsuario= document.getElementById("caja-texto-usuario").value;
-    //ver si el boton esta funcionando
-    document.getElementById("encriptar").innerHTML="Funciona";
+    //Hacer una copia del texto en el localStorage
+    localStorage.setItem("textocopiado",textoUsuario);
     //Mandar texto de usuraio y texto de interfaz a la funcion
     encriptar_texto(textoUsuario, "textoA");
+    window.location.href=("encriptar.html");
+    
 }
 
 function boton_desencriptar()
 {
+    //Obtener el texto
     let textoTomado= document.getElementById("caja-texto-usuario").value;
-    console.log(textoTomado);
+    localStorage.setItem("textocopiado",textoTomado);
     document.getElementById("desencriptar").innerHTML="Funciona";
-    desencriptar_texto(textoTomado, "textoA");
-    document.getElementById("textoB").innerHTML="";
+    desencriptar_texto(textoTomado, "textoA");    
+    window.location.href=("desencriptar.html");
 }
 
 function boton_copiar()
@@ -35,9 +38,6 @@ function boton_copiar()
 
 //Funciones de los botonos
 function encriptar_texto(textoAEncriptar, textoInterfaz){
-
-    textoUsuario_copia=textoAEncriptar;
-
     //encriptar
     for (let indice = 0; indice < textoAEncriptar.length; indice++) {
         if (textoAEncriptar[indice]== "a")
@@ -68,14 +68,7 @@ function encriptar_texto(textoAEncriptar, textoInterfaz){
             console.log(textoAEncriptar);
             indice= indice+letraU.length-1;
         }
-
-
-        
-
-        
-
     }    
-
     //reemplazar en la interfez
     document.getElementById(textoInterfaz).innerHTML = textoAEncriptar;
 }
@@ -89,15 +82,10 @@ function desencriptar_texto(textoRecibido,textoInterfaz)
 
     for (let index = 0; index < texto_aux.length; index++) {
         textoRecibido=desencriptador(textoRecibido,letraA);
-        console.log(textoRecibido+"    desencriptar letra A");
         textoRecibido=desencriptador(textoRecibido,letraE);
-        console.log(textoRecibido+"    desencriptar letra E");
         textoRecibido=desencriptador(textoRecibido,letraI);
-        console.log(textoRecibido+"    desencriptar letra I");
         textoRecibido=desencriptador(textoRecibido,letraO);
-        console.log(textoRecibido+"    desencriptar letra O");
         textoRecibido=desencriptador(textoRecibido,letraU);
-        console.log(textoRecibido+"    desencriptar letra U");
     }
 
     texto_desencriptado=textoRecibido;
