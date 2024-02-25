@@ -17,7 +17,7 @@ function boton_encriptar(){
     //Mandar texto de usuraio y texto de interfaz a la funcion
     encriptar_texto(textoUsuario, "textoA");
     window.location.href=("encriptar.html");
-    
+    //document.querySelector(".interfaz-derecha").setAttribute("style","opacity: 1; scale:1; position:relative;display:block");
 }
 
 function boton_desencriptar()
@@ -28,6 +28,7 @@ function boton_desencriptar()
     document.getElementById("desencriptar").innerHTML="Funciona";
     desencriptar_texto(textoTomado, "textoA");    
     window.location.href=("desencriptar.html");
+   // document.querySelector(".interfaz-derecha").setAttribute("style","opacity: 1; scale:1; position:relative;display:block");
 }
 
 function boton_copiar()

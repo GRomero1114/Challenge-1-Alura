@@ -156,3 +156,61 @@ color: #999999;
     border: solid 1px #0A3871;
     background-color: rgba(10, 56, 133, 10);
 }
+
+
+@media  screen and (max-width: 480px)
+{
+
+    .interfaz-usuario{
+        width: auto;
+        margin-left: 0;
+    }
+
+    .interfaz-usuario form{
+        width: auto;
+        
+        margin: 1em 1em;
+    }
+
+    .boton{
+        width: 300px;
+        margin: 25px;
+    }
+
+
+
+
+    .interfaz-derecha{
+        position: absolute;
+        scale: 0;
+    }
+}
+
+@media  screen and (max-width: 780px)
+{
+    .interfaz-usuario{
+        width: auto;
+        margin-left: 0;
+    }
+
+    .interfaz-usuario form{
+        width: auto;
+        
+        margin: 1em 1em;
+    }
+
+    .boton{
+        width: 300px;
+        margin: 25px;
+    }
+
+
+
+
+    .interfaz-derecha{
+        position: absolute;
+        scale: 0;
+    }
+}
+    
+    
