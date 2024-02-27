@@ -1,5 +1,5 @@
 html{
-    background: linear-gradient(#e6edf7 90%, #6694cc) ;
+    background: linear-gradient(#e6edf7 99%, #6694cc) ;
 }
 
 header{
@@ -7,7 +7,7 @@ header{
 }
 
 main{
-    padding: 1em 0 9em 0   ;
+    padding: 1em 0 10em 0   ;
     width: 100%;
 
     margin: 0 auto;
@@ -51,9 +51,6 @@ main{
     vertical-align: bottom;
 }
 
-
-
-
 .botones p{
     font-size: 13px;
     text-align: left;
@@ -84,11 +81,6 @@ main{
     cursor: pointer;
 }
 
-.boton:active{
-    border: solid 1px #0A3871;
-    background-color: rgba(10, 56, 133, 10);
-}
-
 #encriptar{
     background-color: #0A3871;
     color: white;
@@ -111,30 +103,28 @@ main{
     vertical-align: top;
     border-radius: 30px;
     border: none;
-   
     box-shadow: 24px 24px 32px -8px #00000014,-24px -24px 32px -8px #00000014 ;
-
 }
 
-
 .textos{
+    font-size: 1.5em  ;
+    margin: 1em;
     border: none green;
     word-wrap: break-word;
     width: auto;
-    height: 80%;
+  /*   height: 100%; */
     overflow: auto;
     color: black; 
     text-align: center;
-    padding: 10px 0 0 0;
-    margin: 0 10px;
-    
+    padding: 2em;
+    margin: 0 3px;
 }
 
-.textos::-webkit-scrollbar{
+.textos::-webkit-scrollbar, #caja-texto-usuario::-webkit-scrollbar{
     width: 10px;
 }
 
-.textos::-webkit-scrollbar-thumb{
+.textos::-webkit-scrollbar-thumb,#caja-texto-usuario::-webkit-scrollbar-thumb{
     background: rgba(10, 56, 113, 1);
     border-radius: 10px;
 }
@@ -148,15 +138,147 @@ main{
 color: #999999;
 }
 
-/* #textoA::first-letter, #textoB::first-letter{
+#textoA::first-letter, #textoB::first-letter{
     text-transform: uppercase;
-} */
+}
 
-#copiar{
+.boton-copiar{
+    width: auto;
+    display: flex;
+    position: relative;
+    justify-content: center;
     
+}
+
+#copiar{ 
     vertical-align: bottom;
     max-width: 80%;
     margin: 2em 2em 2em 2.5em;
+}
+
+#copiar:active{
+    border: solid 1px #0A3871;
+    background-color: rgba(10, 56, 133, 10);
+}
+
+
+/* repositivo */
+
+/*Minimos*/
+
+@media  screen and ( min-width: 720px)
+{
+    .interfaz-usuario form{
+        width: auto;
+        margin: 1em 1em;
+        margin-left: 10%;
+    }
+}
+
+@media  screen and ( min-width: 900px)
+{
+    
+    #copiar{
+        width: 90%;
+    }
+}
+
+@media  screen and ( min-width: 900px)
+{
+    
+    main{
+        height: 100%;
+    }
+
+    #copiar{
+        max-width: 90%;
+    }
+}
+
+
+/*Maximos*/
+
+@media  screen and (max-width: 1024px)
+{
+
+  /*   .interfaz-usuario{
+        width: auto;
+        margin-left: 0;
+    } */
+
+
+
+
+
+/*     .botones{
+        width: 95%;
+    } */
+
+/*     .boton{
+        width: 90%;
+        margin:25px;
+        display: block;
+    } */
+
+
     
 }
+
+@media  screen and (max-width: 1024px)
+{
+    main{
+        padding: 0;
+    }
+
+    .interfaz-usuario{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .interfaz-usuario form{
+        width: auto;
+        margin: 1em 1em;
+    }
+
+    #caja-texto-usuario{
+        text-align: center;
+    }
+
+    .botones{
+        width: 100%;
+       
+    }
+
+    .boton{
+        display: grid;
+        width: 90%;
+        margin:25px auto;   
+    }
+
+    .interfaz-derecha{
+        opacity: 1; scale:1; position:relative;display:block; margin: 2em 1em; width:auto;
+        height: auto;
+        padding: 0;
+    }
+
+    .textos{
+        height: auto;
+        max-height: 400px;
+    }
+    .imagen-centro{
+        scale: 0;
+    }
+    #imagen-munieco{
+        height: 0;
+    }
+    
+/*     .boton-copiar{
+        display: flex;
+    } */
+}
+
+
+
+
+
 

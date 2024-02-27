@@ -13,7 +13,7 @@
     <body>
 
         <header>
-            <div id="logo-a"><img src="imagenes/Logo.png" alt="Alura-A"></div>
+            <div id="logo-a"><a href="index.html"><img src="imagenes/Logo.png" alt="Alura-A"></a></div>
           
         </header>
 
@@ -22,13 +22,13 @@
 
                 <form method="post">
                     <label for="caja-texto-usuario"></label>
-                    <textarea id="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" ></textarea>
+                    <textarea id="caja-texto-usuario" name="caja-texto-usuario" placeholder="Ingrese un Texto" cols="30" rows="10" ></textarea>
                 </form>
 
                 <div class="botones">
                     <p>Solo letras minúsculas y sin acento</p>
-                    <button onclick="boton_encriptar()" class="boton" id="encriptar">Encriptar</button>
-                    <button onclick="boton_desencriptar()"class="boton" id="desencriptar">Desencriptar</button>
+                    <button onclick="boton_encriptar();" class="boton" id="encriptar">Encriptar</button>
+                    <button onclick="boton_desencriptar();"class="boton" id="desencriptar">Desencriptar</button>
                 </div>
             </div>
             <div class="interfaz-derecha">
@@ -41,8 +41,8 @@
                         <p id="textoA">Ningún mensaje fue encontrado</p>
                         <p id="textoB">Ingrese el texto que desea encriptar o desencriptar</p>
                     </div>
-                    <div>
-                        <button onclick="boton_copiar()" class="boton" id="copiar" disabled style="scale: 0">Copiar</button>
+                    <div class="boton-copiar">
+                        <button onclick="boton_copiar();" class="boton" id="copiar" disabled style="scale: 0">Copiar</button>
                     </div>
                 </div>
                

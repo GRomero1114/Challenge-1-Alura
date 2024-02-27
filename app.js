@@ -9,8 +9,6 @@ let textoUsuario_copia="";
 
 //Botones
 function boton_encriptar(){
-    //Verificar si la caja esta vacia
-
         //remover imagen
     const padre = document.querySelector(".interfaz-derecha");
     const hijo = document.querySelector(".imagen-centro");
@@ -20,41 +18,44 @@ function boton_encriptar(){
     }
         // habilitar boton copiar
     habilitarBoton("copiar");
-  
-    //inicializar boton de encriptar con el texto dado
+    disenioResponsivo();
+    //inicializar variable a encriptar con el texto dado
     let textoUsuario= document.getElementById("caja-texto-usuario").value;
-    //ver si el boton esta funcionando
-    document.getElementById("encriptar").innerHTML="Funciona";
     //Mandar texto de usuraio y texto de interfaz a la funcion
+    console.log(textoUsuario);
     encriptar_texto(textoUsuario, "textoA");
     document.getElementById("textoB").innerHTML="";
+    textoUsuario="";//No entiendo por que no deja la caja vacia esta linea
+    document.getElementById("caja-texto-usuario").value="";
+    window.scroll({
+        top: -100,
+        behavior: "smooth",
+      });
 }
 
 function boton_desencriptar()
 {
-
-   
-    //eliminar imagen de texo y mostrar mensaje copiar
-        //remover imagen si existe
+    //Aplicar cambios para el diseño responsivo
+    disenioResponsivo();
+    //remover imagen si existe
     const padre = document.querySelector(".interfaz-derecha");
     const hijo = document.querySelector(".imagen-centro");
     if(hijo)
     {
         const throwawayNode = padre.removeChild(hijo);
     }
-        // habilitar boton copiar
+    // habilitar boton copiar
     habilitarBoton("copiar");
-
+    //inicializar variable a encriptar con el texto dado
     let textoTomado= document.getElementById("caja-texto-usuario").value;
-    console.log(textoTomado);
-    document.getElementById("desencriptar").innerHTML="Funciona";
     desencriptar_texto(textoTomado, "textoA");
     document.getElementById("textoB").innerHTML="";
+    textoTomado="";
 }
 
 function boton_copiar()
 {
-    copiarTexto()
+    copiarTexto();
 }
 
 
@@ -69,38 +70,26 @@ function encriptar_texto(textoAEncriptar, textoInterfaz){
         { 
             nuevo_texto= textoAEncriptar.substring(0,indice) +letraA;
             textoAEncriptar= nuevo_texto +textoAEncriptar.substring(indice+1);
-            console.log(textoAEncriptar);
             indice= indice+letraA.length-1;
         }else if (textoAEncriptar[indice]== "e"){
             nuevo_texto= textoAEncriptar.substring(0,indice) +letraE;
             textoAEncriptar= nuevo_texto +textoAEncriptar.substring(indice+1);
-            console.log(textoAEncriptar);
             indice= indice+letraE.length-1;
         }else  if (textoAEncriptar[indice]== "i"){
             nuevo_texto= textoAEncriptar.substring(0,indice) +letraI;
             textoAEncriptar= nuevo_texto +textoAEncriptar.substring(indice+1);
-            console.log(textoAEncriptar);
             indice= indice+letraI.length-1;
         }else  if (textoAEncriptar[indice]== "o"){
             nuevo_texto= textoAEncriptar.substring(0,indice) +letraO;
             textoAEncriptar= nuevo_texto +textoAEncriptar.substring(indice+1);
-            console.log(textoAEncriptar);
             indice= indice+letraU.length-1;
         }else if(textoAEncriptar[indice]== "u")
         {
             nuevo_texto= textoAEncriptar.substring(0,indice) +letraU;
             textoAEncriptar= nuevo_texto +textoAEncriptar.substring(indice+1);
-            console.log(textoAEncriptar);
             indice= indice+letraU.length-1;
-        }
-
-
-        
-
-        
-
+        }  
     }    
-
     //reemplazar en la interfez
     document.getElementById(textoInterfaz).innerHTML = textoAEncriptar;
 }
@@ -114,15 +103,10 @@ function desencriptar_texto(textoRecibido,textoInterfaz)
 
     for (let index = 0; index < texto_aux.length; index++) {
         textoRecibido=desencriptador(textoRecibido,letraA);
-        console.log(textoRecibido+"    desencriptar letra A");
         textoRecibido=desencriptador(textoRecibido,letraE);
-        console.log(textoRecibido+"    desencriptar letra E");
         textoRecibido=desencriptador(textoRecibido,letraI);
-        console.log(textoRecibido+"    desencriptar letra I");
         textoRecibido=desencriptador(textoRecibido,letraO);
-        console.log(textoRecibido+"    desencriptar letra O");
         textoRecibido=desencriptador(textoRecibido,letraU);
-        console.log(textoRecibido+"    desencriptar letra U");
     }
 
     texto_desencriptado=textoRecibido;
@@ -178,5 +162,13 @@ function copiarTexto() {
     if (boton.disabled== true) {
         boton.removeAttribute("disabled");
         boton.removeAttribute("style");
+    }
+  }
+
+  function disenioResponsivo()
+  {
+    if (window.screen.width<=780) {
+        document.querySelector(".interfaz-derecha").setAttribute("style","opacity: 1; scale:1; position:relative;display:block; margin: 2em 1em; width:auto;");
+        //document.querySelector(".interfaz-derecha").setAttribute("style","opacity: 1; scale:1; position:relative;display:block; margin: 1em 2em 0 2em; width:auto;padding:0");
     }
   }
