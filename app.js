@@ -4,8 +4,11 @@ const letraI = "imes";
 const letraO = "ober";
 const letraU = "ufat";
 
+let pantallaenY =screen.height
+let pantallaenX = screen.width
 let textoAEncriptar= document.getElementById(textoA);
 let textoUsuario_copia="";
+disenioResponsivo();
 
 //Botones
 function boton_encriptar(){
@@ -22,13 +25,15 @@ function boton_encriptar(){
     //inicializar variable a encriptar con el texto dado
     let textoUsuario= document.getElementById("caja-texto-usuario").value;
     //Mandar texto de usuraio y texto de interfaz a la funcion
-    console.log(textoUsuario);
     encriptar_texto(textoUsuario, "textoA");
     document.getElementById("textoB").innerHTML="";
     textoUsuario="";//No entiendo por que no deja la caja vacia esta linea
     document.getElementById("caja-texto-usuario").value="";
+    //Mover hacia abajo
+
+    if(screen.width<1024)
     window.scroll({
-        top: -100,
+        top: 10000 ,
         behavior: "smooth",
       });
 }
@@ -51,6 +56,14 @@ function boton_desencriptar()
     desencriptar_texto(textoTomado, "textoA");
     document.getElementById("textoB").innerHTML="";
     textoTomado="";
+    document.getElementById("caja-texto-usuario").value="";
+    //Mover hacia abajo
+
+    if(screen.width<1024)
+    window.scroll({
+        top: 10000 ,
+        behavior: "smooth",
+      });
 }
 
 function boton_copiar()
@@ -167,8 +180,29 @@ function copiarTexto() {
 
   function disenioResponsivo()
   {
+    //ancho
     if (window.screen.width<=780) {
-        document.querySelector(".interfaz-derecha").setAttribute("style","opacity: 1; scale:1; position:relative;display:block; margin: 2em 1em; width:auto;");
-        //document.querySelector(".interfaz-derecha").setAttribute("style","opacity: 1; scale:1; position:relative;display:block; margin: 1em 2em 0 2em; width:auto;padding:0");
+        document.querySelector(".interfaz-derecha").setAttribute("style",`opacity: 1; scale:1; position:relative;display:block; margin: 2em 1em; width:auto;` );
     }
+
+/*     //alto
+    if (window.screen.height<=670) {
+        document.querySelector(".interfaz-derecha").setAttribute("style",`height:${screen.height/2}px` );
+        document.querySelector(".interfaz-usuario").setAttribute("style",`height:${screen.height/2}px`);
+        document.querySelector(".interfaz-usuario form").setAttribute("style",`height:${screen.height/2}px`)
+        document.querySelector("header").setAttribute("style",`height:${screen.height/30}px`)
+    } */
+
+    if (window.screen.height>=1240 && window.screen.width<=800) {
+        document.querySelector("html").setAttribute("style",`height:100%`)
+    }
+    
+/*     if (window.screen.height>=900) {
+        document.querySelector(".interfaz-derecha").setAttribute("style",` height:${screen.height/2}px` );
+        document.querySelector(".interfaz-usuario").setAttribute("style",`height:${screen.height/2}px`);
+        document.querySelector(".interfaz-usuario form").setAttribute("style",`height:${screen.height/2}px`)
+        document.querySelector("header").setAttribute("style",`height:${screen.height/20}px`)
+    } */
+
+
   }
